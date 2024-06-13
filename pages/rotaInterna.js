@@ -3,10 +3,16 @@ import { Ionicons } from '@expo/vector-icons/';
 import Tela1 from './tela1';
 import Tela2 from './tela2';
 import Tela3 from './tela3';
+import React, { useState } from 'react';
+
 
 const Tab = createBottomTabNavigator();
 
 export default function RotaInterna() {
+
+    const [info1, setInfo1] = useState('');
+    const [info2, setInfo2] = useState('');
+
     return (
         <Tab.Navigator
             screenOptions={{
@@ -22,9 +28,8 @@ export default function RotaInterna() {
                 },
 
             }}>
-            <Tab.Screen
+            <Tab.Screen 
                 name="tela1"
-                component={Tela1}
                 options={{
                     tabBarBadge: 1,
                     tabBarShowLabel: false,
@@ -37,6 +42,7 @@ export default function RotaInterna() {
                     }
                 }}
             >
+            {() => <Tela1 textoPronto={setInfo1} textoPronto2={setInfo2} />}
             </Tab.Screen>
 
             <Tab.Screen
@@ -56,7 +62,6 @@ export default function RotaInterna() {
             </Tab.Screen>
             <Tab.Screen
                 name="tela3"
-                component={Tela3}
                 options={{
                     tabBarShowLabel: false,
                     headerShown: false,
@@ -68,6 +73,7 @@ export default function RotaInterna() {
                     }
                 }}
             >
+            {() => <Tela3 texto={info1} texto2={info2} />}
             </Tab.Screen>
         </Tab.Navigator>
     )

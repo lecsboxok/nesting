@@ -2,12 +2,14 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-export default function Tela3() {
+export default function Tela3({ texto, texto2 }) {
+
+  
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tela 3</Text>
-      <Text style={styles.text}>INFO1</Text>
-      <Text style={styles.text}>INFO2</Text>
+      <Text style={styles.title}>Tela3</Text>
+      <Text style={styles.text}>{texto}</Text>
+      <Text style={styles.text}>{texto2}</Text>
       <StatusBar style="auto" />
     </View>
   );
